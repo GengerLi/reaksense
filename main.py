@@ -2,7 +2,7 @@ import pyrealsense2 as rs
 import numpy as np
 import cv2
 import time
-import serial  #串口发送
+import serial  
 
 # 相机参数
 HFOV = 87.0  # 水平视场角
@@ -25,7 +25,7 @@ def detect_a4_contour(image):
     thresh = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY_INV, 59, 20)
     kernel = np.ones((3, 3), np.uint8)
     mask = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
-    #cv2.imshow("mask", mask)
+    cv2.imshow("mask", mask)
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     if contours:
@@ -100,7 +100,7 @@ if __name__ == "__main__":
             cv2.putText(result, f"FPS: {fps:.0f}", (10, 85), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (200, 200, 200), 2)
 
             # 显示图像
-            cv2.imshow('RealSense View', result)
+            cv2.imshow('image', result)
 
             key = cv2.waitKey(1)
             if key & 0xFF == ord('q') or key == 27:
