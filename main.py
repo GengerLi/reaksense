@@ -2,7 +2,7 @@ import pyrealsense2 as rs
 import numpy as np
 import cv2
 import time
-import serial  
+
 
 # 相机参数
 HFOV = 87.0  # 水平视场角
