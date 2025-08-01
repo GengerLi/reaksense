@@ -56,7 +56,7 @@ def detect(color_image, depth_frame):
         center_y = y + h // 2
 
         distance = depth_frame.get_distance(center_x, center_y)
-        angle_x, angle_y = compute_angle_offset(center_x, center_y) #目标中心点相对于图像中心点的偏移角度 angle_x，angle_y
+        angle_x, angle_y = compute_angle_offset(center_x, center_y)       #目标中心点相对于图像中心点的偏移角度 angle_x，angle_y
         print(f"中心坐标 center_x: {center_x}, center_y: {center_y}       偏移角度: X方向 {angle_x:.2f}°, Y方向 {angle_y:.2f}°")
 
         # 可视化目标
